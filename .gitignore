@@ -1,0 +1,55 @@
+###########################################
+##         Powered By Geekerstar         ##
+## Github：https://github.com/geekerstar ##
+## Blog：https://www.geekerstar.com      ##
+## 极客文库：https://www.jikewenku.com    ##
+## 猿码素材：https://www.yuanmasucai.com  ##
+###########################################
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+
+### VS Code ###
+.vscode/
+/.mvn/
+/mvnw
+/mvnw.cmd
+
+### Package Files ###
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+### System Files ###
+.DS_Store
+
+
+### Code ###
+/target/
+
+/src/main/resources/templates/
+/src/main/resources/static/
