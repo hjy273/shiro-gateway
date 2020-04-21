@@ -1,0 +1,103 @@
+#########################################################################
+####                             开发环境                             ####
+#########################################################################
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/gateway?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+    username: root
+    password: root
+  #
+  #spring:
+  #  datasource:
+  #    druid:
+  #      stat-view-servlet:
+  #        enabled: true
+  #        allow:
+  #        loginUsername: root
+  #        loginPassword: root
+  #    dynamic:
+  #      druid:
+  #        # 初始化时建立物理连接的个数
+  #        initial-size: 5
+  #        # 最大连接池数量
+  #        max-active: 30
+  #        # 最小连接池数量
+  #        min-idle: 5
+  #        # 获取连接时最大等待时间，单位毫秒
+  #        max-wait: 60000
+  #        # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+  #        time-between-eviction-runs-millis: 60000
+  #        # 连接保持空闲而不被驱逐的最小时间
+  #        min-evictable-idle-time-millis: 300000
+  #        # 用来检测连接是否有效的sql，要求是一个查询语句
+  #        validation-query: SELECT 1
+  #        # 建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+  #        test-while-idle: true
+  #        # 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+  #        test-on-borrow: false
+  #        # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+  #        test-on-return: false
+  #        # 是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql下建议关闭。
+  #        pool-prepared-statements: true
+  #        # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。
+  #        max-pool-prepared-statement-per-connection-size: 50
+  #        # 配置监控统计拦截的filters，去掉后监控界面sql无法统计
+  #        filters: stat
+  #        # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+  #        connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  #        # 合并多个DruidDataSource的监控数据
+  #        use-global-data-source-stat: true
+  #        # 排除一些静态资源，以提高效率
+  #        web-stat-filter:
+  #          # 添加过滤规则
+  #          url-pattern: /*
+  #          # 忽略过滤格式
+  #          exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+  #
+  #      # 是否开启 SQL日志输出，生产环境建议关闭，有性能损耗
+  #      p6spy: true
+  #      #      hikari:
+  #      #        connection-timeout: 30000
+  #      #        max-lifetime: 1800000
+  #      #        max-pool-size: 15
+  #      #        min-idle: 5
+  #      #        connection-test-query: select 1
+  #      #        pool-name: GeekHikariCP
+  #      # 配置默认数据源
+  #      primary: base
+  #      datasource:
+  #        # 数据源-1，名称为 gateway
+  #        base:
+  #          username: root
+  #          password: root
+  #          driver-class-name: com.mysql.jdbc.Driver
+  #          url: jdbc:mysql://127.0.0.1:3306/gateway?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+  #        # 数据源-2，名称为 xxxx
+  ##        xxxx:
+  ##          username: root
+  ##          password: root
+  ##          driver-class-name: com.mysql.jdbc.Driver
+  ##          url: jdbc:mysql://127.0.0.1:3306/xxxx?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+
+  redis:
+    # Redis数据库索引（默认为 0）
+    database: 0
+    # Redis服务器地址
+    host: 127.0.0.1
+    # Redis服务器连接端口
+    port: 6379
+    # Redis 密码
+    password:
+    lettuce:
+      pool:
+        # 连接池中的最小空闲连接
+        min-idle: 8
+        # 连接池中的最大空闲连接
+        max-idle: 500
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 2000
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: 10000
+    # 连接超时时间（毫秒）
+    timeout: 5000

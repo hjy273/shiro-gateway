@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geekerstar.gateway.mapper.ResourceMapper">
+
+    <select id="selectRoleRules" resultType="com.geekerstar.gateway.entity.RolePermRule">
+        select
+        CONCAT(re.url,'==',UCASE(re.method)) as url,
+		GROUP_CONCAT(ro.role_code ORDER BY re.url) as needRoles
+        from auth_resource re
+        left join auth_role_resource rore on re.id = rore.resource_id
+        left join auth_role ro on ro.id = rore.role_id
+        where re.type = 2
+        group by re.url,re.id
+    </select>
+</mapper>

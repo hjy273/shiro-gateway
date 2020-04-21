@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geekerstar.gateway.mapper.AccountMapper">
+
+    <select id="selectUserRoleByAppId" resultType="java.lang.String">
+        SELECT CONCAT(r.role_code) AS Roles
+        FROM auth_user u
+        JOIN auth_user_role ur ON u.id = ur.user_id
+        JOIN auth_role r ON r.id = ur.role_id
+        <where>
+            and u.status = 1
+            and u.id = #{appId} or u.username = #{appId} or u.email = #{appId} or u.phone = #{appId}
+        </where>
+    </select>
+
+    <select id="selectAccountInfoByAppId" resultType="com.geekerstar.gateway.vo.AccountInfo">
+        SELECT
+        *
+        from auth_user
+        <where>
+            and status = 1
+            and id = #{appId} or username = #{appId} or email = #{appId} or phone = #{appId}
+        </where>
+    </select>
+</mapper>
